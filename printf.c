@@ -30,7 +30,6 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			n = malloc(sizeof(int));
 			switch (format[i])
 			{
 				case 's':
@@ -49,15 +48,11 @@ int _printf(const char *format, ...)
 					break;
 				case 'd':
 					num = va_arg(ap, int);
-					sprintf(n, "%d", num);
-					write(1, n, strlen(n));
-					count += strlen(n);
+					count += print_num(&n, num);
 					break;
 				case 'i':
 					num = va_arg(ap, int);
-					sprintf(n, "%d", num);
-					write(1, n, strlen(n));
-					count += strlen(n);
+					count += print_num(&n, num);
 					break;
 				default:
 					break;
