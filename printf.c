@@ -12,13 +12,13 @@ int _printf(const char *format, ...)
 	int i, count;
 	char c;
 	const char *str;
+
 	va_list(ap);
 
 	va_start(ap, format);
 	count = 0;
-
 	if (format == NULL)
-		return (1);
+		return (-1);
 	for (i = 0; format[i]; i++)
 	{
 		if (format[i] != '%')
