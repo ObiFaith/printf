@@ -9,8 +9,9 @@
 
 int _printf(const char *format, ...)
 {
-	int i, count;
+	int i, count, num;
 	char c;
+	char *n;
 	const char *str;
 	va_list(ap);
 
@@ -22,26 +23,46 @@ int _printf(const char *format, ...)
 	for (i = 0; format[i]; i++)
 	{
 		if (format[i] != '%')
-			count += write(1, &format[i], 1);
+		{
+			write(1, &format[i], 1);
+			count++;
+		}
 		else
 		{
 			format++;
+			n = malloc(sizeof(int));
 			switch (format[i])
 			{
 				case 's':
 					str = va_arg(ap, const char *);
-					count += write(1, str, strlen(str));
+					write(1, str, strlen(str));
+					count += strlen(str);
 					break;
 				case 'c':
 					c = va_arg(ap, int);
-					count += write(1, &c, sizeof(char));
+					write(1, &c, sizeof(char));
+					count += 1;
 					break;
 				case '%':
-					count += write(1, &format[i], sizeof(char));
+					write(1, &format[i], sizeof(char));
+					count += 1;
+					break;
+				case 'd':
+					num = va_arg(ap, int);
+					sprintf(n, "%d", num);
+					write(1, n, strlen(n));
+					count += strlen(n);
+					break;
+				case 'i':
+					num = va_arg(ap, int);
+					sprintf(n, "%d", num);
+					write(1, n, strlen(n));
+					count += strlen(n);
 					break;
 				default:
 					break;
 			}
+			free(n);
 		}
 	}
 	va_end(ap);
