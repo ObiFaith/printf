@@ -7,7 +7,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <limits.h>
+#include <math.h>
 
 int _printf(const char *format, ...);
+int binary(int num);
+int print_num(int num);
 
 #endif
