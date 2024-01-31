@@ -40,8 +40,6 @@ int _printf(const char *format, ...)
 				count += write(1, &format[i], 1);
 			else if (format[i] == 'd' || format[i] == 'i')
 				count += print_num(va_arg(ap, int));
-			else if (format[i] == 'b')
-				base(va_arg(ap, int), 2);
 		}
 	}
 	va_end(ap);
