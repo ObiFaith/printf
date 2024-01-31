@@ -8,7 +8,7 @@
  * Return: number of characters printed
  */
 
-int binary(int num, int base)
+int base(int num, int base)
 {
 	int i, n, count;
 	char one;

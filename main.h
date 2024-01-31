@@ -10,7 +10,7 @@
 #include <math.h>
 
 int _printf(const char *format, ...);
-int binary(int num);
+int base(int num, int base);
 int print_num(int num);
 
 #endif
