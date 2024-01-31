@@ -9,7 +9,7 @@
 #include <limits.h>
 
 int _printf(const char *format, ...);
-int base(int num, int base);
+void base(int num, int base);
 int print_num(int num);
 
 #endif
