@@ -7,7 +7,6 @@
 #include <string.h>
 #include <unistd.h>
 #include <limits.h>
-#include <math.h>
 
 int _printf(const char *format, ...);
 int base(int num, int base);
