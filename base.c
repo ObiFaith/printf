@@ -13,6 +13,7 @@ int base(int num, int base)
 	int i, n, count;
 	char one;
 	char zero;
+
 	one = '1';
 	zero = '0';
 	count = 0;
