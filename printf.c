@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 				count += write(1, &c, 1);
 			}
 			else if (format[i] == '%')
-				count += write(1, &format[i], 1)
+				count += write(1, &format[i], 1);
 			else if (format[i] == 'd' || format[i] == 'i')
 				count += print_num(va_arg(ap, int));
 		}
