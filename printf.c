@@ -26,20 +26,21 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-		if (format[i] == 's')
-		{
-			str = va_arg(ap, const char *);
-			count += write(1, str, strlen(str));
+			if (format[i] == 's')
+			{
+				str = va_arg(ap, const char *);
+				count += write(1, str, strlen(str));
+			}
+			else if (format[i] == 'c')
+			{
+				c = va_arg(ap, int);
+				count += write(1, &c, 1);
+			}
+			else if (format[i] == '%')
+				count += write(1, &format[i], 1)
+			else if (format[i] == 'd' || format[i] == 'i')
+				count += print_num(va_arg(ap, int));
 		}
-		else if (format[i] == 'c')
-		{
-			c = va_arg(ap, int);
-			count += write(1, &c, 1);
-		}
-		else if (format[i] == '%')
-			count += write(1, &format[i], 1)
-		else if (format[i] == 'd' || format[i] == 'i')
-			count += print_num(va_arg(ap, int));
 	}
 	va_end(ap);
 	return (count);
